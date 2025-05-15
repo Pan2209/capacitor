@@ -1,18 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Geolocalizacion
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-button (click)="getCurrentPosition()">Obtener ubicación</ion-button>
+<p>Lat: {{ latitude }}, Lng: {{ longitude }}</p>
 
-<ion-content class="ion-padding">
-  <ion-button expand="block" (click)="getCurrentPosition()">
-    obtener ubicacion
-  </ion-button>
+<ion-button (click)="takePicture()">Tomar foto</ion-button>
+<img *ngIf="photo" [src]="photo" width="200" />
 
-  <div *ngIf="latitude && longitude">
-    <p><strong>latitude</strong>{{ latitude }}</p>
-    <p><strong>longitude</strong>{{ longitude }}</p>
-    </div>
-</ion-content>
+<p *ngIf="pushToken"><strong>Push Token:</strong> {{ pushToken }}</p>
+<p *ngIf="notificationMessage"><strong>Última notificación:</strong> {{ notificationMessage }}</p>
